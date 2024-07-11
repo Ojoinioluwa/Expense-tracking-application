@@ -17,7 +17,7 @@ mongoose
   .catch((err) => console.log(err));
 // !Cors configuration
 const corsOptions = {
-  origin: ["http://localhost:5173"],
+  origin: ["https://expense-tracking-application-frontend.onrender.com"],
 };
 app.use(cors(corsOptions));
 // middlewares
