@@ -5,26 +5,26 @@ const isAuthenticated = require("../middlewares/isAuth");
 const userRouter = express.Router();
 
 // ? Register
-userRouter.post("/api/v1/users/register", userController.register);
+userRouter.post("/users/register", userController.register);
 
 // ? Login
-userRouter.post("/api/v1/users/login", userController.login);
+userRouter.post("/users/login", userController.login);
 
 // ? Profile
 userRouter.get(
-  "/api/v1/users/profile",
+  "/users/profile",
   isAuthenticated,
   userController.profile
 );
 // ? Change password
 userRouter.put(
-  "/api/v1/users/change-password",
+  "/users/change-password",
   isAuthenticated,
   userController.changeUserPassword
 );
 // ? Update profile
 userRouter.put(
-  "/api/v1/users/update-profile",
+  "/users/update-profile",
   isAuthenticated,
   userController.updateUserProfile
 );
