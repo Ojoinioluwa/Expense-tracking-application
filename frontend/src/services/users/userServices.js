@@ -15,10 +15,10 @@ export const loginAPI = async ({ email, password }) => {
   return response.data;
 };
 // ! register
-export const registerAPI = async ({ email, password, username }) => {
+export const registerAPI = async ({ username, email, password }) => {
   const response = await axios.post(`${BASE_URL}/users/register`, {
-    email,
     username,
+    email,
     password,
   });
   // !return a promise
