@@ -23,11 +23,11 @@ const validationSchema = Yup.object({
 const RegistrationForm = () => {
   const navigate = useNavigate();
   // Instance of dispatch
-  const { mutateAsync, isPending, isError, isSuccess } = useMutation({
+  const { mutateAsync, isPending, isError, isSuccess, error } = useMutation({
     mutationFn: registerAPI,
     mutationKey: ["register"],
   });
-  const { error, setError } = useState(null);
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -39,13 +39,13 @@ const RegistrationForm = () => {
     validationSchema,
     // !submit function
     onSubmit: (values) => {
-      setError(null);
+
       mutateAsync(values)
         .then((data) => {
           return data;
         })
         .catch((err) => {
-          setError(err);
+          console.log(err)
         });
     },
   });
@@ -55,7 +55,7 @@ const RegistrationForm = () => {
       if (isSuccess) {
         navigate("/login");
       }
-    }, 3000);
+    }, 100);
   }, [isPending, isSuccess, isError]);
 
   return (
@@ -67,7 +67,7 @@ const RegistrationForm = () => {
       </h2>
       {/* Display messages */}
       {isPending && <AlertMessage type="loading" message="waiting" />}
-      {isError && <AlertMessage type="error" message="user already exist" />}
+      {isError && <AlertMessage type="error" message="an error occured exist" />}
       {isSuccess && (
         <AlertMessage type="success" message="Registration  successful" />
       )}
