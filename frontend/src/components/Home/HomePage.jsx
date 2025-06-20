@@ -19,7 +19,7 @@ const HeroSection = () => {
           <h1 className="text-5xl font-bold text-center">
             Track Your Expenses Effortlessly
           </h1>
-
+          
           {/* Subheading */}
           <p className="mt-4 text-xl text-center">
             Manage your finances with a modern solution designed for you.

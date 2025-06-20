@@ -37,8 +37,7 @@ const AddCategory = () => {
     },
     validationSchema,
     onSubmit: (values) => {
-      mutateAsync(values)
-        .then((data) => {
+        mutateAsync(values).then((data) => {
           navigate("/categories");
         })
         .catch((err) => console.log(err));
